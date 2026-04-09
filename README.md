@@ -15,10 +15,11 @@
 
 ## Skill
 
-当前仓库提供 2 个核心 skill：
+当前仓库提供 3 个核心 skill：
 
 - `harness-dev-workflow`
 - `harness-doc-system`
+- `harness-commander`
 
 它适合：
 
@@ -55,14 +56,16 @@ git clone https://github.com/alan666gg/harness-workflow.git ~/.codex/harness-wor
 mkdir -p ~/.agents/skills
 ln -s ~/.codex/harness-workflow/skills/harness-dev-workflow ~/.agents/skills/harness-dev-workflow
 ln -s ~/.codex/harness-workflow/skills/harness-doc-system ~/.agents/skills/harness-doc-system
+ln -s ~/.codex/harness-workflow/skills/harness-commander ~/.agents/skills/harness-commander
 ```
 
 ### Claude Code / 兼容 agentskills.io 的环境
 
-直接使用 `skills/` 目录下的两个 skill：
+直接使用 `skills/` 目录下的三个 skill：
 
 - `skills/harness-dev-workflow/SKILL.md`
 - `skills/harness-doc-system/SKILL.md`
+- `skills/harness-commander/SKILL.md`
 
 ## 仓库结构
 
@@ -70,13 +73,25 @@ ln -s ~/.codex/harness-workflow/skills/harness-doc-system ~/.agents/skills/harne
 skills/
 ├── harness-dev-workflow/
 │   ├── SKILL.md
+│   ├── agents/
+│   │   └── openai.yaml
 │   └── references/
 │       ├── file-contracts.md
 │       └── validation-and-release.md
-└── harness-doc-system/
+├── harness-doc-system/
+│   ├── SKILL.md
+│   ├── agents/
+│   │   └── openai.yaml
+│   └── references/
+│       └── doc-order-and-indexes.md
+└── harness-commander/
     ├── SKILL.md
-    └── references/
-        └── doc-order-and-indexes.md
+    └── agents/
+        └── openai.yaml
+templates/
+├── task-template.md
+├── handshake-template.md
+└── worklog-template.md
 ```
 
 ## 适合的团队场景
@@ -86,7 +101,7 @@ skills/
 - 需要把阶段性结论写回仓库
 - 需要清晰的任务边界、验证证据、上线记录
 
-## 两个 skill 的分工
+## 三个 skill 的分工
 
 ### `harness-dev-workflow`
 
@@ -105,6 +120,23 @@ skills/
 - Plan / Task / Handshake / Worklog 的写法规范
 - 文档顺序
 - 索引与回写纪律
+
+### `harness-commander`
+
+负责：
+
+- 拆任务
+- 分 ownership
+- 维护总计划
+- 把多个 tranche 收成统一验收结果
+
+## 模板
+
+仓库现在也包含可直接复用的模板：
+
+- `templates/task-template.md`
+- `templates/handshake-template.md`
+- `templates/worklog-template.md`
 
 ## 状态
 
