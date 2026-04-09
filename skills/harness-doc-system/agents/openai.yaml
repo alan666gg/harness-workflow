@@ -1,0 +1,5 @@
+interface:
+  display_name: "Harness 文档体系"
+  short_description: "维护 Plan、Task、Handshake、Worklog 的文档结构"
+  default_prompt: "使用 $harness-doc-system 帮我设计或整理这个项目的 harness 文档体系。"
+

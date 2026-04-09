@@ -15,9 +15,10 @@
 
 ## Skill
 
-当前仓库提供 1 个核心 skill：
+当前仓库提供 2 个核心 skill：
 
 - `harness-dev-workflow`
+- `harness-doc-system`
 
 它适合：
 
@@ -53,21 +54,29 @@ docs/harness/
 git clone https://github.com/alan666gg/harness-workflow.git ~/.codex/harness-workflow
 mkdir -p ~/.agents/skills
 ln -s ~/.codex/harness-workflow/skills/harness-dev-workflow ~/.agents/skills/harness-dev-workflow
+ln -s ~/.codex/harness-workflow/skills/harness-doc-system ~/.agents/skills/harness-doc-system
 ```
 
 ### Claude Code / 兼容 agentskills.io 的环境
 
-直接使用 `skills/harness-dev-workflow/SKILL.md` 即可。
+直接使用 `skills/` 目录下的两个 skill：
+
+- `skills/harness-dev-workflow/SKILL.md`
+- `skills/harness-doc-system/SKILL.md`
 
 ## 仓库结构
 
 ```text
 skills/
-└── harness-dev-workflow/
+├── harness-dev-workflow/
+│   ├── SKILL.md
+│   └── references/
+│       ├── file-contracts.md
+│       └── validation-and-release.md
+└── harness-doc-system/
     ├── SKILL.md
     └── references/
-        ├── file-contracts.md
-        └── validation-and-release.md
+        └── doc-order-and-indexes.md
 ```
 
 ## 适合的团队场景
@@ -77,7 +86,26 @@ skills/
 - 需要把阶段性结论写回仓库
 - 需要清晰的任务边界、验证证据、上线记录
 
+## 两个 skill 的分工
+
+### `harness-dev-workflow`
+
+负责：
+
+- 复杂任务推进
+- tranche 拆分
+- task / handshake / worklog 闭环
+- 验证与发布节奏
+
+### `harness-doc-system`
+
+负责：
+
+- harness 目录设计
+- Plan / Task / Handshake / Worklog 的写法规范
+- 文档顺序
+- 索引与回写纪律
+
 ## 状态
 
 当前版本：`v1.0`
-
